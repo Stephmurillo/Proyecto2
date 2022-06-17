@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Electronic Medical Record</title>
+        <link rel="stylesheet" type="text/css" href="/SistemaMedico/estilo/styleBootstrap.css">
+        <link rel="icon" href="https://cdn-icons.flaticon.com/png/512/1683/premium/1683189.png?token=exp=1653929542~hmac=bb2c56c863191d4df65cca9a87f16afa">
+
+        <link rel="stylesheet" href="https://cdn.usebootstrap.com/bootstrap/5.0.1/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.12/css/all.css">         
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script> 
+        <script src="https://cdn.usebootstrap.com/bootstrap/5.0.1/js/bootstrap.min.js"></script>
+        <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+        <link href="//cdn.jsdelivr.net/npm/@sweetalert2/theme-borderless@4/borderless.css" rel="stylesheet">
+        <script src="//cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.js"></script>
+        <script src="controller.js"></script> 
+    </head>
+    <body style="background-image: url('https://img.freepik.com/foto-gratis/concepto-salud-medico-medico-medicina-estetoscopio-mano-pacientes_34200-313.jpg?w=996');
+          background-repeat: no-repeat; background-size: cover;">
+        <section>
+            <div class="mask d-flex align-items-center h-100 gradient-custom-3" id="containerMed">
+                <div class="container h-100 rounded-3">
+                    <div class="row d-flex justify-content-center align-items-center h-100">
+                        <div class="col-12 col-md-9 col-lg-7 col-xl-6">
+                            <div class="card shadow-2-strong card-registration" style="border-radius: 15px;">
+                                <div class="card-body p-5">
+                                    <h2 class="text-uppercase text-center mb-5">Crear una cuenta de Medico</h2>
+
+                                    <form id="formRegisterMed">
+
+                                        <div class="form-outline mb-4">
+                                            <input type="text" id="id" class="form-control" placeholder=" "/>
+                                            <label class="form-label">ID</label>
+                                        </div>
+
+                                        <div class="form-outline mb-4">
+                                            <input type="text" id="nombre" class="form-control" placeholder=" "/>
+                                            <label class="form-label">Nombre</label>
+                                        </div>
+
+                                        <div class="form-outline mb-4">
+                                            <input type="password" id="contrasena" class="form-control" placeholder=" "/>
+                                            <label class="form-label">Contraseña</label>
+                                        </div>
+
+                                        <div class="form-outline mb-4">
+                                            <input type="password" id="contrasena2" class="form-control" placeholder=" "/>
+                                            <label class="form-label">Repita su contraseña</label>
+                                        </div>
+
+                                        <div class="form-outline mb-4">
+                                            <input type="text" id="costo" class="form-control" placeholder=" "/>
+                                            <label class="form-label">Costo</label>
+                                        </div>
+
+                                        <div class="col-md-6 mb-4">
+                                            <textarea cols="60" rows="3" wrap="hard" id="resena" placeholder="Presentación o Reseña"></textarea>
+                                        </div>
+
+                                        <div class="form-outline mb-4">
+                                            <input type="text" id="direccion" class="form-control" placeholder=" "/>
+                                            <label class="form-label">Dirección</label>
+                                        </div>
+
+                                        <div class="col-md-6 mb-4">
+                                            <label class="form-label select-label">Elegir ubicación</label>
+                                            <select class="select form-control-lg" id="ubicacion">
+
+                                            </select>
+                                        </div>
+
+                                        <div class="col-md-6 mb-4">
+                                            <label class="form-label select-label">Elegir especialidad</label>
+                                            <select class="select form-control-lg" id="especialidad"></select>
+                                        </div>
+                                        <div class="col-md-2 mb-10">
+                                            <label class="form-label select-label">Tiempo de consulta</label>
+                                            <select class="select form-control-lg" id="tiempoConsulta">
+                                                <option value= "0" disabled selected>Elija una opción</option>
+                                                <option value="15">15 minutos</option>
+                                                <option value="20">20 minutos</option>
+                                                <option value="30">30 minutos</option>
+                                                <option value="60">1 hora</option>
+                                            </select>
+                                        </div>
+                                        <div class="col-md-6 mb-4">
+                                            <label for="imagen">Foto de perfil</label>
+                                            <input type="file" accept="image/*" class="form-control" name="imagen" id="imagen" placeholder="Imagen">
+                                        </div>
+
+                                        <div class="justify-content-center row">
+                                            <div class ="col-md-3"><button type="button" class="btn btn-success btn-lg gradient-custom-2 text-white" 
+                                                                           data-bs-toggle="modal" data-bs-target="#ModalHorario" id="horario">Horario</button></div>
+                                            <div class ="col-md-3"><button type="button" class="btn btn-success btn-lg gradient-custom-2 text-white" id="registrar">Registrarse</button></div>
+                                        </div>
+
+                                        <p class="text-center text-muted mt-5 mb-0">Ya tiene una cuenta? 
+                                            <a href="/SistemaMedico/index.html" class="fw-bold text-body"><u>Ingresar</u></a></p>
+
+                                    </form>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- MODAL HORARIO -->
+        <div class="modal fade" id="ModalHorario" tabindex="-1" aria-hidden="true" aria-labelledby="modalTitle">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content rounded-3">
+                    <div class="modal-header gradient-custom-2">
+                        <h5 class="modal-title text-white" id="modalTitle">
+                            <img src="https://cdn-icons-png.flaticon.com/512/1057/1057521.png" height="45" width="45">
+                            Horario Laboral</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body" id="modalBody">
+                        <div class="row" id="HLaboral"></div>
+
+                    </div>
+                    <div class="modal-footer justify-content-between">
+                        <button type="button" class="btn btn-success btn-block btn-lg gradient-custom-2 text-white" data-bs-dismiss="modal" id="guardar">Guardar</button>
+                        <button type="button" class="btn btn-secondary btn-block btn-lg text-white" data-bs-dismiss="modal" id="cerrar">Cerrar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
