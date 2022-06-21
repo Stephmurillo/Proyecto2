@@ -1,0 +1,43 @@
+.gradient-custom-2 {
+    /* fallback for old browsers */
+    background: #0B2451;
+
+    /* Chrome 10-25, Safari 5.1-6 */
+    background: -webkit-linear-gradient(to right, #2a4080 0, #0b2451 50%, #000327 100%);
+
+    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    background: linear-gradient(to right, #2a4080 0, #0b2451 50%, #000327 100%);
+}
+
+@media (min-width: 768px) {
+    .gradient-form {
+        height: 100vh !important;
+    }
+}
+@media (min-width: 769px) {
+    .gradient-custom-2 {
+        border-top-right-radius: .3rem;
+        border-bottom-right-radius: .3rem;
+    }
+}
+
+.gradient-custom-3 {
+   /* fallback for old browsers */
+    background: #0c5bf9;
+
+    /* Chrome 10-25, Safari 5.1-6 */
+    background: -webkit-linear-gradient(to right, rgba(28, 44, 198, 0.5), rgba(35, 56, 244, 0.5));
+
+    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    background: linear-gradient(to right, rgba(28, 44, 198, 0.5), rgba(35, 56, 244, 0.5))
+}
+
+.horarioLaboral {
+    text-align: center;
+}
+
+.ocultar {
+    display: none;
+}
+
+
